@@ -1,18 +1,16 @@
 <template lang="pug">
   header#top.w-full.flex.flex-col.fixed.bg-white(class='sm:relative')
-    nav#site-menu(class='flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-1 bg-white shadow sm:shadow-md')
+    nav#site-menu(class='flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-1 bg-white')
       div(class='w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center')
         div.flex.justify-between.content-center
           Logo
-          span.font-semibold.text-gray-700.text-xl.tracking-tight.my-auto Michiwoo
         button#menuBtn(:class="`hamburger block sm:hidden focus:outline-none ${classOpen}`" type='button' @click='navToggle')
           span.hamburger__top-bun
           span.hamburger__bottom-bun
       #menu(:class="`w-full ${classflex} sm:w-auto self-end sm:self-center sm:flex flex-col sm:flex-row items-center h-full py-1 pb-4 sm:py-0 sm:pb-0 ${classHidden}`")
-        a(class='text-pink-800 font-bold text-base w-full no-underline py-2 hover:text-gray-700 sm:w-auto sm:pr-4 sm:py-1 sm:pt-2') Home
-        a(class='text-pink-800 font-bold text-base w-full no-underline py-2 hover:text-gray-700 sm:w-auto sm:px-4 sm:py-1 sm:pt-2') Blog
-        a(class='text-pink-800 font-bold text-base w-full no-underline py-2 hover:text-gray-700 sm:w-auto sm:px-4 sm:py-1 sm:pt-2') Proyectos
-        a(class='text-pink-800 font-bold text-base w-full no-underline py-2 hover:text-gray-700 sm:w-auto sm:px-4 sm:py-1 sm:pt-2') Acerca de mí
+        NuxtLink(class='text-pink-800 font-bold text-base w-full no-underline py-2 hover:text-gray-700 sm:w-auto sm:pr-4 sm:py-1 sm:pt-2' to='/') Home
+        NuxtLink(class='text-pink-800 font-bold text-base w-full no-underline py-2 hover:text-gray-700 sm:w-auto sm:px-4 sm:py-1 sm:pt-2' to='/blog') Blog
+        NuxtLink(class='text-pink-800 font-bold text-base w-full no-underline py-2 hover:text-gray-700 sm:w-auto sm:px-4 sm:py-1 sm:pt-2' to='/proyectos') Proyectos
 </template>
 
 <script>

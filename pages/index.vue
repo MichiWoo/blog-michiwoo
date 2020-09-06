@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.w-full.flex.flex-col.justify-between.content-center.min-h-full
+  div(class='w-full flex flex-col justify-between items-center min-h-full')
     Header
     Home
     Footer
