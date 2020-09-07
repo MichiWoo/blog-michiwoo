@@ -1,16 +1,18 @@
 <template lang="pug">
-  div(class='w-full flex flex-col justify-between items-center min-h-full')
-    Header
-    Home
-    Footer
+  Home(:posts='posts')
 </template>
 
 <script>
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import Home from '../components/Home'
 export default {
-  components: { Header, Footer, Home },
+  components: { Home },
+  async asyncData({ $content, params }) {
+    const posts = await $content('posts')
+      .only(['title', 'slug', 'createdAt', 'description', 'index', 'tags'])
+      .sortBy('index', 'asc')
+      .fetch()
+    return { posts }
+  },
 }
 </script>
 

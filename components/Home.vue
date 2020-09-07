@@ -1,30 +1,36 @@
 <template lang="pug">
-  main(class='flex flex-col py-24 w-3/4 border-b-2 border-gray-400')
+  main(class='flex flex-col pt-24 pb-8 w-3/4 border-b-2 border-gray-400')
     div.py-6.text-pink-800.font-bold.text-xl
-      | ✋ Soy Michel González
+      | Michel González
     div.py-6.text-justify
-      p 💻 Desarrollador frontend, en el mundo digital me encuentras como 
-        b.text-pink-800 Michiwoo
-        | , actualmente desarrollo con Vue.
-    div.py-6.text-justify
-      p 💚 Amo ver series, la tecnología y mi meta es Nunca dejar de aprender.
-    div.py-6.text-center
-      | Si tienes algún proyecto, puedes encontrarme en mis redes sociales: 
-    div.flex.justify-center.content-center.mb-2
-      div(class="flex justify-center content-center mx-3")
-        button(class="rounded-full h-8 w-8 flex items-center justify-center bg-pink-800 text-white hover:bg-purple-700")
-            font-awesome-icon(:icon="['fab', 'twitter']")
-      div(class="flex justify-center content-center mx-3")
-        button(class="rounded-full h-8 w-8 flex items-center justify-center bg-pink-800 text-white hover:bg-purple-700")
-          font-awesome-icon(:icon="['fab', 'github']")
-      div(class="flex justify-center content-center mx-3")
-          button(class="rounded-full h-8 w-8 flex items-center justify-center bg-pink-800 text-white hover:bg-purple-700")
-            font-awesome-icon(:icon="['fas', 'envelope']")
+      p 💻 Desarrollador frontend...
+    div(class='flex justify-center items-center shadow sm:shadow-md md:shadow-lg lg:shadow-xl xl:shadow-2xl mb-4' v-for='p in posts')
+      div(class='flex flex-col items-center p-2')
+        div.w-full(v-html='getTags(p)')
+        div.w-full.mt-2 {{ p.description }}
+        div.w-full.flex.justify-end.align-center.mt-2
+          div.text-xs.text-gray-600 {{ p.createdAt }}
 </template>
 
 <script>
 export default {
   name: 'Home',
+  props: {
+    posts: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  methods: {
+    getTags(post) {
+      let html = ''
+      const tags = post.tags.split(' ')
+      tags.map((t) => {
+        html += `<span class='text-xs text-white bg-pink-800 rounded-full py-1 px-2 m-1 '>${t}</span>`
+      })
+      return html
+    },
+  },
 }
 </script>
 
