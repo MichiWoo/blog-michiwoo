@@ -4,34 +4,59 @@
       | Michel González
     div.py-6.text-justify
       p 💻 Desarrollador frontend...
-    div(class='flex justify-center items-center shadow sm:shadow-md md:shadow-lg lg:shadow-xl xl:shadow-2xl mb-4' v-for='p in posts')
-      div(class='flex flex-col items-center p-2')
-        div.w-full(v-html='getTags(p)')
-        div.w-full.mt-2 {{ p.description }}
-        div.w-full.flex.justify-end.align-center.mt-2
-          div.text-xs.text-gray-600 {{ p.createdAt }}
+    div(class='grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4')
+      NuxtLink(v-for='p in blog' :key='p.index' :to="`/blog/${p.slug}`")
+        div(class='max-w-sm rounded overflow-hidden shadow-lg card py-4')
+          div.overlay
+          div.px-6.py-4
+            div.font-bold.text-xl.mb-2 
+              span {{ p.title }}
+            p.text-gray-700.text-base
+              | {{ p.description }}
+          div.px-6.pt-4.pb-2
+            span(v-html='getTags(p)')
+          div.w-full.flex.justify-end.align-center.mt-2
+            div.text-xs.text-gray-600.pr-3.pb-1 {{ normalizedDate(p.createdAt) }}
 </template>
 
 <script>
 export default {
   name: 'Home',
   props: {
-    posts: {
+    blog: {
       type: Array,
       default: () => [],
     },
   },
   methods: {
-    getTags(post) {
+    getTags(blog) {
       let html = ''
-      const tags = post.tags.split(' ')
+      const tags = blog.tags.split(' ')
       tags.map((t) => {
-        html += `<span class='text-xs text-white bg-pink-800 rounded-full py-1 px-2 m-1 '>${t}</span>`
+        html += `<span class='inline-block bg-pink-800 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2'>${t}</span>`
       })
       return html
+    },
+    normalizedDate(createdAt) {
+      const date = new Date(createdAt)
+      const normalizedCreatedAt = new Intl.DateTimeFormat('es-Mx').format(date)
+      return normalizedCreatedAt
     },
   },
 }
 </script>
 
-<style></style>
+<style>
+.card {
+  --box-shadow-color: rgba(151, 38, 109, 0.6);
+}
+.card:hover {
+  cursor: pointer;
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.11), 0 6px 12px var(--box-shadow-color);
+}
+
+.card:hover .overlay {
+  transform: scale(4) translateZ(0);
+}
+</style>

@@ -3,7 +3,8 @@
     nav#site-menu(class='flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-1 bg-white')
       div(class='w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center')
         div.flex.justify-between.content-center
-          Logo
+          NuxtLink(to='/')
+            Logo
         button#menuBtn(:class="`hamburger block sm:hidden focus:outline-none ${classOpen}`" type='button' @click='navToggle')
           span.hamburger__top-bun
           span.hamburger__bottom-bun
