@@ -1,5 +1,5 @@
 <template lang="pug">
-  header#top.w-full.flex.flex-col.fixed.bg-white(class='sm:relative')
+  header#top(class='w-4/5 sm:w-full md:w-4/5 lg:w-4/5 xl:w-4/5 flex flex-col fixed bg-white sm:relative')
     nav#site-menu(class='flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-1 bg-white')
       div(class='w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center')
         div.flex.justify-between.content-center
