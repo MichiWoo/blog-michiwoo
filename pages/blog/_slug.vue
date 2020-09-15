@@ -9,14 +9,22 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    const blo = await $content('blog', params.slug)
-      .fetch()
-      .catch((e) => {
-        console.log(`Error: ${e.message}`)
-      })
+    const blo = await $content('blog', params.slug).fetch()
     return { blo }
   },
 }
 </script>
 
-<style></style>
+<style>
+.nuxt-content h2 {
+  font-weight: bold;
+  font-size: 28px;
+}
+.nuxt-content h3 {
+  font-weight: bold;
+  font-size: 22px;
+}
+.nuxt-content p {
+  margin-bottom: 20px;
+}
+</style>

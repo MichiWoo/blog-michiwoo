@@ -2,7 +2,9 @@
   main(class='flex flex-col pt-24 pb-8 w-3/4 border-b-2 border-gray-400')
     div.py-6.text-pink-800.font-bold.text-xl
       | Proyectos
-    div(class='grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4')
+    div.py-6.text-justify
+      p Algunos de mis trabajos, espero te gusten !!!
+    div(class='grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3')
       div.card.mx-2(v-for='b in blog' :style="`--animation-order: ${b.index}`")
         div.articles__article
           a.articles__link
@@ -34,7 +36,7 @@ export default {
 <style>
 :root {
   --base-grid: 8px;
-  --colour-body-background: #d84c6e;
+  --colour-body-background: #97266d;
   --colour-background: #fff;
   --colour-background-folded: #f5f5f5;
   --colour-background-stripes: rgba(255, 255, 255, 0.5);
@@ -138,6 +140,7 @@ export default {
   line-height: 1.125;
   font-weight: 700;
   letter-spacing: -0.02em;
+  margin-bottom: 0.2em;
 }
 
 .articles__footer {

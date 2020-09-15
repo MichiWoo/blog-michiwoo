@@ -3,21 +3,23 @@
     div.py-6.text-pink-800.font-bold.text-xl
       | Michel González
     div.py-6.text-justify
-      p 💻 Desarrollador frontend...
+      p ✏ Te comparto algo de mis experiencias !!!
     div(class='grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3')
-      NuxtLink(v-for='b in blog' :key='b.index' :to="`/blog/${b.slug}`")
-        div.card.mx-2(:style="`--animation-order: ${b.index}`")
-          div.articles__article
-            a.articles__link
-              div.articles__content.articles__content--lhs
-                h2.articles__title {{ b.title }}
-                div(v-html='getTags(b)')
-                div.articles__footer
-                  time {{ normalizedDate(b.createdAt) }}
-              div.articles__content.articles__content--rhs(aria-hidden="true")
-                h2.articles__title {{ b.title }}
-                div.articles__footer
-                  time {{ normalizedDate(b.createdAt) }}
+      div(v-for='b in blog' :key='b.index' :to="`/blog/${b.slug}`")
+        NuxtLink(:to="`/blog/${b.slug}`")
+          div.card.mx-2(:style="`--animation-order: ${b.index}`")
+            div.articles__article
+              a.articles__link
+                div.articles__content.articles__content--lhs
+                  h2.articles__title {{ b.title }}
+                  div(v-html='getTags(b)')
+                  div.articles__footer
+                    time {{ normalizedDate(b.createdAt) }}
+                div.articles__content.articles__content--rhs(aria-hidden="true")
+                  h2.articles__title {{ b.title }}
+                  div(v-html='getTags(b)')
+                  div.articles__footer
+                    time {{ normalizedDate(b.createdAt) }}
 </template>
 
 <script>
@@ -34,7 +36,7 @@ export default {
       let html = ''
       const tags = blog.tags.split(' ')
       tags.map((t) => {
-        html += `<span class='inline-block bg-pink-800 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2'>${t}</span>`
+        html += `<span class='inline-block bg-pink-800 rounded-full px-2 py-1 text-sm font-base text-white mr-1 mb-1'>${t}</span>`
       })
       return html
     },
@@ -50,7 +52,7 @@ export default {
 <style>
 :root {
   --base-grid: 8px;
-  --colour-body-background: #d84c6e;
+  --colour-body-background: #97266d;
   --colour-background: #fff;
   --colour-background-folded: #f5f5f5;
   --colour-background-stripes: rgba(255, 255, 255, 0.5);
@@ -154,6 +156,7 @@ export default {
   line-height: 1.125;
   font-weight: 700;
   letter-spacing: -0.02em;
+  margin-bottom: 0.2em;
 }
 
 .articles__footer {
