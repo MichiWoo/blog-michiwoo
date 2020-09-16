@@ -1,34 +1,27 @@
 <template lang="pug">
-  main(class='flex flex-col pt-24 pb-8 w-3/4 border-b-2 border-gray-400')
-    div.py-6.text-pink-800.font-bold.text-xl
-      | Michel González
-    div.py-6.text-justify
-      p ✏ Te comparto algo de mis experiencias !!!
-    ul(class='grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3')
-      li(v-for='b in blog' :key='b.slug')
-        NuxtLink(:to="`/blog/${b.slug}`")
-          div.card.mx-2(:style="`--animation-order: ${b.index}`")
-            div.articles__article
-              a.articles__link
-                div.articles__content.articles__content--lhs
-                  h2.articles__title {{ b.title }}
-                  div(v-html='getTags(b)')
-                  div.articles__footer
-                    time {{ formatDate(b.updatedAt) }}
-                div.articles__content.articles__content--rhs(aria-hidden="true")
-                  h2.articles__title {{ b.title }}
-                  div(v-html='getTags(b)')
-                  div.articles__footer
-                    time {{ formatDate(b.updatedAt) }}
+  li
+    div.card.mx-2(:style="`--animation-order: ${blog.index}`" :key='blog.index')
+      div.articles__article
+        a.articles__link
+          div.articles__content.articles__content--lhs
+            h2.articles__title {{ blog.title }}
+            div(v-html='getTags(blog)')
+            div.articles__footer
+              time {{ normalizedDate(blog.createdAt) }}
+          div.articles__content.articles__content--rhs(aria-hidden="true")
+            h2.articles__title {{ blog.title }}
+            div(v-html='getTags(blog)')
+            div.articles__footer
+              time {{ normalizedDate(blog.createdAt) }}
 </template>
 
 <script>
 export default {
-  name: 'Home',
+  name: 'CardProject',
   props: {
     blog: {
-      type: Array,
-      default: () => [],
+      type: Object,
+      default: () => {},
     },
   },
   methods: {
@@ -40,15 +33,16 @@ export default {
       })
       return html
     },
-    formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('es', options)
+    normalizedDate(createdAt) {
+      const date = new Date(createdAt)
+      const normalizedCreatedAt = new Intl.DateTimeFormat('es-Mx').format(date)
+      return normalizedCreatedAt
     },
   },
 }
 </script>
 
-<style>
+<style lang="css" scoped>
 :root {
   --base-grid: 8px;
   --colour-body-background: #97266d;
@@ -136,7 +130,7 @@ export default {
   padding: calc(var(--base-grid) * 2);
   display: flex;
   flex-direction: column;
-  border: 2px solid rgba(151, 38, 109, 0.08);
+  border: 2px solid var(--colour-background);
 }
 
 .articles__content--lhs {

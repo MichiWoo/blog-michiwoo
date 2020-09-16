@@ -8,7 +8,6 @@ export default {
   components: { Home },
   async asyncData({ $content, params }) {
     const blog = await $content('blog', params.slug)
-      .only(['title', 'slug', 'createdAt', 'description', 'index', 'tags'])
       .sortBy('index', 'asc')
       .fetch()
     return { blog }
