@@ -73,9 +73,7 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {
-    extracCSS: true
-  },
+  build: {},
   fontawesome: {
     icons: {
       solid: true,
