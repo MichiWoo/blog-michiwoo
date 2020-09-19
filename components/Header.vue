@@ -3,9 +3,9 @@
     nav#site-menu(class='flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-1 bg-white')
       div(class='w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center')
         div.flex.justify-between.content-center
-          NuxtLink(to='/')
+          NuxtLink(to='/' aria-label="Link Logo")
             Logo
-        button#menuBtn(:class="`hamburger block sm:hidden focus:outline-none ${classOpen}`" type='button' @click='navToggle')
+        button#menuBtn(:class="`hamburger block sm:hidden focus:outline-none ${classOpen}`" type='button' @click='navToggle' aria-label="button menu app")
           span.hamburger__top-bun
           span.hamburger__bottom-bun
       #menu(:class="`w-full ${classflex} sm:w-auto self-end sm:self-center sm:flex flex-col sm:flex-row items-center h-full py-1 pb-4 sm:py-0 sm:pb-0 ${classHidden}`" aria-label="menu app")
