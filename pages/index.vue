@@ -3,9 +3,10 @@
 </template>
 
 <script>
-import Home from '../components/Home'
 export default {
-  components: { Home },
+  components: {
+    Home: () => import('../components/Home'),
+  },
   async asyncData({ $content, params }) {
     const blog = await $content('blog', params.slug)
       .sortBy('index', 'asc')

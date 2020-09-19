@@ -15,10 +15,11 @@
 </template>
 
 <script>
-import Logo from '../components/Logo'
 export default {
   name: 'Header',
-  components: { Logo },
+  components: {
+    Logo: () => import('../components/Logo'),
+  },
   data() {
     return {
       classflex: '',
