@@ -47,7 +47,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
+    //@nuxtjs/tailwindcss',
     '@nuxtjs/fontawesome',
   ],
   /*
@@ -73,9 +73,7 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {
-    extractCSS: true
-  },
+  build: {},
   fontawesome: {
     icons: {
       solid: true,
