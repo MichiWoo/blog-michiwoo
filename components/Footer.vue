@@ -5,9 +5,9 @@
         div(class="flex justify-center content-center")
           NuxtLink(class="text-pink-800 font-bold no-underline py-2 hover:text-gray-700 sm:w-auto text-sm sm:py-1 sm:pt-2" to='/') Home
         div(class="flex justify-center content-center")
-          NuxtLink(class="text-pink-800 font-bold no-underline py-2 hover:text-gray-700 sm:w-auto text-sm sm:py-1 sm:pt-2" to='/blog') Blog
-        div(class="flex justify-center content-center")
           NuxtLink(class="text-pink-800 font-bold no-underline py-2 hover:text-gray-700 sm:w-auto text-sm sm:py-1 sm:pt-2" to='/proyectos') Proyectos
+        div(class="flex justify-center content-center")
+          NuxtLink(class="text-pink-800 font-bold no-underline py-2 hover:text-gray-700 sm:w-auto text-sm sm:py-1 sm:pt-2" to='/acerca') Acerca de mí
       div.flex.justify-center.content-center.mb-2
         div(class="flex justify-center content-center mx-3")
           a(class="rounded-full h-8 w-8 flex items-center justify-center bg-pink-800 text-white hover:bg-purple-700" href='https://twitter.com/MichiwooWebs' target='_blank' rel='noreferer noopener' aria-label="Link Twitter")
