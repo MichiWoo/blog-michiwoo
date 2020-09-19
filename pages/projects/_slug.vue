@@ -16,6 +16,9 @@ export default {
 </script>
 
 <style>
+.nuxt-content-container {
+  position: inherit;
+}
 .nuxt-content h2 {
   font-weight: bold;
   font-size: 28px;

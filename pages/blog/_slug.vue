@@ -54,6 +54,10 @@ export default {
 .separator {
   margin-bottom: 30px;
 }
+.nuxt-content-container {
+  position: inherit;
+}
+
 .nuxt-content h2 {
   font-weight: bold;
   font-size: 28px;

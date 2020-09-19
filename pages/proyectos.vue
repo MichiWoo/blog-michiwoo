@@ -5,7 +5,7 @@
     div.py-6.text-justify
       p Algunos de mis trabajos, espero te gusten !!!
     ul(class='grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3')
-      li(v-for='p in proyects' :key='p.slug')
+      li.flex.justify-center.py-2(v-for='p in proyects' :key='p.slug')
         NuxtLink(:to="`/projects/${p.slug}`")
           div.cardProject(:style="`--animation-order: ${p.index}`")
             h3.title {{ p.title }}
@@ -43,7 +43,7 @@ export default {
 .cardProject {
   display: flex;
   height: 280px;
-  width: 200px;
+  width: 60vw;
   background-color: #17141d;
   border-radius: 10px;
   box-shadow: -0.5rem 0 1rem var(--colour-body-background);
