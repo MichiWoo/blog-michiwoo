@@ -132,4 +132,22 @@ svg {
   stroke-dashoffset: 100;
   transition: 0.6s ease-out;
 }
+
+@media screen and (min-width: 768px) {
+  .cardProject {
+    width: 20vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .cardProject {
+    width: 20vw;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .cardProject {
+    width: 20vw;
+  }
+}
 </style>
