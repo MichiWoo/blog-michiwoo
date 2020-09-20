@@ -67,8 +67,7 @@ export default {
           threshold: 10240
         }
       }
-    ],
-    'nuxt-lazy-load'
+    ]
   ],
   /*
    ** Content module configuration
