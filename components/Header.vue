@@ -4,7 +4,8 @@
       div(class='w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center')
         div.flex.justify-between.content-center
           NuxtLink(to='/' aria-label="Link Logo")
-            Logo
+            div.mr-6
+            Logo(v-lazy-load)
         button#menuBtn(:class="`hamburger block sm:hidden focus:outline-none ${classOpen}`" type='button' @click='navToggle' aria-label="button menu app")
           span.hamburger__top-bun
           span.hamburger__bottom-bun

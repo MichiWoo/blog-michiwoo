@@ -57,6 +57,18 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    [
+      "nuxt-compress",
+      {
+        gzip: {
+          cache: true
+        },
+        brotli: {
+          threshold: 10240
+        }
+      }
+    ],
+    'nuxt-lazy-load'
   ],
   /*
    ** Content module configuration
