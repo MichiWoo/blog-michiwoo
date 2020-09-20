@@ -3,11 +3,8 @@
     LazyHydrate(when-idle)
       h1.my-8.max-w-full.m-auto.text-3xl.text-center.font-medium
         | {{ blo.title }}
-    LazyHydrate(when-idle)
       h3.py-4.text-center {{ blo.description }}
-    LazyHydrate(when-idle)
       small.text-pink-800.font-bold {{ `Actualización: ${formatDate(blo.updatedAt)}`}}
-    LazyHydrate(when-idle)
       div.flex.flex-start
         button.bg-transparent.text-pink-800.py-1.px-1.rounded-full(@click='verContenido' v-show='!showContenido')
           | Ver Contenido
@@ -15,12 +12,10 @@
         button.bg-transparent.text-pink-800.py-1.px-1.rounded-full(@click='verContenido' v-show='showContenido')
           | Ocultar Contenido
           .icon.icon-up
-    LazyHydrate(when-idle)
       nav(v-show='showContenido')
         ul
           li(v-for="link of blo.toc" :key="link.id")
             NuxtLink(:class="{ 'py-2': link.depth === 2, 'ml-2 pb-2': link.depth === 3 }" :to="`#${link.id}`") {{ link.text }}
-    LazyHydrate(when-idle)
       div.separator
     LazyHydrate(ssr-only)
       nuxt-content(:document='blo')
