@@ -1,6 +1,6 @@
 <template lang="pug">
-  header#top(class='w-4/5 sm:w-full md:w-4/5 lg:w-4/5 xl:w-4/5 flex flex-col fixed bg-white sm:relative')
-    nav#site-menu(class='flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-1 bg-white')
+  header#top(class='w-full sm:w-4/5 md:w-4/5 lg:w-4/5 xs:w-4/5 flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10')
+    nav#site-menu(class='w-full flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 py-1 bg-white')
       div(class='w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center')
         div.flex.justify-between.content-center
           NuxtLink(to='/' aria-label="Link Logo")

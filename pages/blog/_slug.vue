@@ -1,34 +1,28 @@
 <template lang="pug">
-  article(class='flex flex-col pt-24 pb-8 w-3/4 border-b-2 border-gray-400')
-    LazyHydrate(when-idle)
-      h1.my-8.max-w-full.m-auto.text-3xl.text-center.font-medium
-        | {{ blo.title }}
-      h3.py-4.text-center {{ blo.description }}
-      small.text-pink-800.font-bold {{ `Actualización: ${formatDate(blo.updatedAt)}`}}
-      div.flex.flex-start
-        button.bg-transparent.text-pink-800.py-1.px-1.rounded-full(@click='verContenido' v-show='!showContenido')
-          | Ver Contenido
-          .icon.icon-down
-        button.bg-transparent.text-pink-800.py-1.px-1.rounded-full(@click='verContenido' v-show='showContenido')
-          | Ocultar Contenido
-          .icon.icon-up
-      nav(v-show='showContenido')
-        ul
-          li(v-for="link of blo.toc" :key="link.id")
-            NuxtLink(:class="{ 'py-2': link.depth === 2, 'ml-2 pb-2': link.depth === 3 }" :to="`#${link.id}`") {{ link.text }}
-      div.separator
-    LazyHydrate(ssr-only)
-      nuxt-content(:document='blo')
-    LazyHydrate(when-idle)
-      prev-next(:prev="prev" :next="next")
+  article(class='flex flex-col pt-8 pb-8 w-3/4 border-b-2 border-gray-400')
+    h1.my-8.max-w-full.m-auto.text-3xl.text-center.font-medium
+      | {{ blo.title }}
+    h3.py-4.text-center {{ blo.description }}
+    small.text-pink-800.font-bold {{ `Actualización: ${formatDate(blo.updatedAt)}`}}
+    div.flex.flex-start
+      button.bg-transparent.text-pink-800.py-1.px-1.rounded-full(@click='verContenido' v-show='!showContenido')
+        | Ver Contenido
+        .icon.icon-down
+      button.bg-transparent.text-pink-800.py-1.px-1.rounded-full(@click='verContenido' v-show='showContenido')
+        | Ocultar Contenido
+        .icon.icon-up
+    nav(v-show='showContenido')
+      ul
+        li(v-for="link of blo.toc" :key="link.id")
+          NuxtLink(:class="{ 'py-2': link.depth === 2, 'ml-2 pb-2': link.depth === 3 }" :to="`#${link.id}`") {{ link.text }}
+    div.separator
+    nuxt-content(:document='blo')
+    prev-next(:prev="prev" :next="next")
   </template>
 
 <script>
-import LazyHydrate from 'vue-lazy-hydration'
 export default {
-  components: {
-    LazyHydrate,
-  },
+  components: {},
   async asyncData({ $content, params }) {
     const blo = await $content('blog', params.slug).fetch()
     const [prev, next] = await $content('blog')

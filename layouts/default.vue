@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(class='w-full flex flex-col justify-between items-center min-h-full')
+  div(class='w-full flex flex-col justify-center items-center content-center min-h-full')
     Header
     <Nuxt />
     Footer

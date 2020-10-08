@@ -1,9 +1,8 @@
 <template lang="pug">
-  main(class='flex flex-col pt-24 pb-8 w-3/4 border-b-2 border-gray-400 ')
-    div.py-6.text-pink-800.font-bold.text-xl
-      | Michel González
-    div.py-6.text-justify
-      p ✏ Te comparto algo de mis experiencias !!!
+  main(class='w-4/5 flex flex-col justify-between content-center pt-8 pb-8 w-4/5 border-b-2 border-gray-400')
+    div(class='sm:py-4 py-6')
+      h1(class='text-pink-800 font-bold sm:text-3xl text-2xl') Michel González
+      small.text-gray-600 Frontend developer & coffee fan
     ul(class='grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3')
       li(v-for='b in blog' :key='b.slug')
         NuxtLink(:to="`/blog/${b.slug}`")
@@ -175,5 +174,21 @@ export default {
   opacity: 1;
   transform: translateX(calc(var(--base-grid) * 1.5));
   transition: opacity 0.5s ease-in, transform 0.3s ease-in-out 0.25s;
+}
+
+@media only screen and (max-width: 768px) {
+  .articles__article,
+  .articles__article:before {
+    width: 80vw;
+    height: calc(var(--base-grid) * 25);
+  }
+  .articles__title {
+    font-size: 22px;
+    margin-bottom: 0.4em;
+  }
+  .articles__footer {
+    font-size: 16px;
+    line-height: calc(var(--base-grid) * 1);
+  }
 }
 </style>
