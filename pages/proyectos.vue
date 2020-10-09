@@ -1,6 +1,6 @@
 <template lang="pug">
   main(class='flex flex-col pt-24 pb-8 w-3/4 border-b-2 border-gray-400')
-    div.py-6.text-pink-800.font-bold.text-xl
+    div.py-6.text-pink-primary.font-bold.text-xl
       | Proyectos
     div.py-6.text-justify
       p Algunos de mis trabajos, espero te gusten !!!

@@ -1,8 +1,11 @@
 <template lang="pug">
   main(class='w-4/5 flex flex-col justify-between content-center pt-8 pb-8 w-4/5 border-b-2 border-gray-400')
-    div(class='sm:py-4 py-6')
-      h1(class='text-pink-800 font-bold sm:text-3xl text-2xl') Michel González
-      small.text-gray-600 Frontend developer & coffee fan
+    div(class="flex justify-center items-center sm:justify-start sm:py-4 py-6")
+      div.flex-initial
+        Rocket
+      div(class="sm:flex-grow flex-col justify-center items-center sm:justify-start ml-4")
+        h1(class='text-pink-primary font-bold sm:text-3xl text-2xl') Michel González
+        span.font-medium.text-gray-800 Frontend developer & coffee fan &#x2615
     ul(class='grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3')
       li(v-for='b in blog' :key='b.slug')
         NuxtLink(:to="`/blog/${b.slug}`")
@@ -24,6 +27,9 @@
 <script>
 export default {
   name: 'Home',
+  components: {
+    Rocket: () => import('../components/Rocket'),
+  },
   props: {
     blog: {
       type: Array,
@@ -35,7 +41,7 @@ export default {
       let html = ''
       const tags = blog.tags.split(' ')
       tags.map((t) => {
-        html += `<span class='inline-block bg-pink-800 rounded-full px-2 py-1 text-sm font-base text-white mr-1 mb-1'>${t}</span>`
+        html += `<span class='inline-block bg-pink-primary rounded-full px-2 py-1 text-sm font-base text-white mr-1 mb-1'>${t}</span>`
       })
       return html
     },
@@ -50,7 +56,7 @@ export default {
 <style>
 :root {
   --base-grid: 8px;
-  --colour-body-background: #97266d;
+  --colour-body-background: #95088d;
   --colour-background: #fff;
   --colour-background-folded: #f5f5f5;
   --colour-background-stripes: rgba(255, 255, 255, 0.5);

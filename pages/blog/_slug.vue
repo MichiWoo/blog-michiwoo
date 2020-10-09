@@ -1,14 +1,14 @@
 <template lang="pug">
   article(class='flex flex-col pt-8 pb-8 w-3/4 border-b-2 border-gray-400')
-    h1.my-8.max-w-full.m-auto.text-3xl.text-center.font-medium
+    h1.my-8.max-w-full.m-auto.text-3xl.text-center.font-medium.text-pink-primary
       | {{ blo.title }}
     h3.py-4.text-center {{ blo.description }}
-    small.text-pink-800.font-bold {{ `Actualización: ${formatDate(blo.updatedAt)}`}}
+    small.text-pink-primary.font-bold {{ `Actualización: ${formatDate(blo.updatedAt)}`}}
     div.flex.flex-start
-      button.bg-transparent.text-pink-800.py-1.px-1.rounded-full(@click='verContenido' v-show='!showContenido')
+      button.bg-transparent.text-pink-primary.py-1.px-1.rounded-full(@click='verContenido' v-show='!showContenido')
         | Ver Contenido
         .icon.icon-down
-      button.bg-transparent.text-pink-800.py-1.px-1.rounded-full(@click='verContenido' v-show='showContenido')
+      button.bg-transparent.text-pink-primary.py-1.px-1.rounded-full(@click='verContenido' v-show='showContenido')
         | Ocultar Contenido
         .icon.icon-up
     nav(v-show='showContenido')

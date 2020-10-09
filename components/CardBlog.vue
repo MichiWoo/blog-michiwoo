@@ -29,7 +29,7 @@ export default {
       let html = ''
       const tags = blog.tags.split(' ')
       tags.map((t) => {
-        html += `<span class='inline-block bg-pink-800 rounded-full px-2 py-1 text-sm font-base text-white mr-1 mb-1'>${t}</span>`
+        html += `<span class='inline-block bg-pink-dark rounded-full px-2 py-1 text-sm font-base text-white mr-1 mb-1'>${t}</span>`
       })
       return html
     },

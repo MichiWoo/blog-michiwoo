@@ -10,9 +10,9 @@
           span.hamburger__top-bun
           span.hamburger__bottom-bun
       #menu(:class="`w-full ${classflex} sm:w-auto self-end sm:self-center sm:flex flex-col sm:flex-row items-center h-full py-1 pb-4 sm:py-0 sm:pb-0 ${classHidden}`" aria-label="menu app")
-        NuxtLink(class='text-pink-800 font-bold text-base w-full no-underline py-2 hover:text-gray-700 sm:w-auto sm:pr-4 sm:py-1 sm:pt-2' to='/') Home
-        NuxtLink(class='text-pink-800 font-bold text-base w-full no-underline py-2 hover:text-gray-700 sm:w-auto sm:px-4 sm:py-1 sm:pt-2' to='/proyectos') Proyectos
-        NuxtLink(class='text-pink-800 font-bold text-base w-full no-underline py-2 hover:text-gray-700 sm:w-auto sm:px-4 sm:py-1 sm:pt-2' to='/acerca') Acerca de mí
+        NuxtLink(class='text-pink-primary font-bold text-base w-full no-underline py-2 hover:text-gray-700 sm:w-auto sm:pr-4 sm:py-1 sm:pt-2' @click.native='closeMenu' to='/') Home
+        NuxtLink(class='text-pink-primary font-bold text-base w-full no-underline py-2 hover:text-gray-700 sm:w-auto sm:px-4 sm:py-1 sm:pt-2' @click.native='closeMenu' to='/proyectos') Proyectos
+        NuxtLink(class='text-pink-primary font-bold text-base w-full no-underline py-2 hover:text-gray-700 sm:w-auto sm:px-4 sm:py-1 sm:pt-2' @click.native='closeMenu' to='/acerca') Acerca de mí
 </template>
 
 <script>
@@ -39,6 +39,11 @@ export default {
       this.classOpen === 'open'
         ? (this.classOpen = '')
         : (this.classOpen = 'open')
+    },
+    closeMenu() {
+      this.classHidden = 'hidden'
+      this.classOpen = ''
+      this.classflex = ''
     },
   },
 }

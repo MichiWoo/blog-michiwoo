@@ -1,21 +1,22 @@
 <template lang="pug">
   main(class='flex flex-col py-8 w-3/4 border-b-2 border-gray-400')
-    div.py-6.text-pink-800.font-bold.text-xl
+    div.py-6.text-pink-primary.font-bold.text-xl
       | ✋ Soy Michel González
     div.py-6.text-justify
       p 💻 Desarrollador frontend, en el mundo digital me encuentras como 
-        b.text-pink-800 Michiwoo.
+        b.text-pink-primary Michiwoo.
     div.py-6.text-justify
-      | Las tecnologías con las que trabajoactualmente son:
+      | Las tecnologías con las que trabajo actualmente son:
     ul(class='w-full flex flex-wrap justify-center items-center ')
-      li(v-for='icon in icons' :key='icon.id' class='py-4 mb-3 flex justify-center items-center w-3/12 sm:w-1/12')
-        img(class='w-4/5 h-4/5 object-contain' :src="icon.path" :alt='icon.alt')
+      Tooltip(v-for='icon in icons' :icon="icon" :key="icon.id")
 </template>
 
 <script>
 export default {
   name: 'Acerca',
-  components: {},
+  components: {
+    Tooltip: () => import('../components/Tooltip'),
+  },
   data() {
     return {
       icons: [
